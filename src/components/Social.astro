@@ -1,17 +1,11 @@
 ---
 const { platform, username } = Astro.props;
-import checkUrl from '../scripts/fetch.js';
 
 const url = `https://www.${platform}.com/${username}`;
-const urlExists = await checkUrl(url);
 ---
 
-<p>Props pass data from one component to another (args), read-only, unidirectional from parent to child.</p>
-{!urlExists && <p>URL does not exist.</p>}
-{urlExists && (
-    <a href={url}>{platform}</a>
-    <p>unchanged website</p>
-)}
+<a href={url}>{platform}</a>
+
 
 <style>
     a {
